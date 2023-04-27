@@ -1,23 +1,24 @@
 #!/usr/bin/python3
-""" Module for calculating Pascal Triangle """
+"""A script to determine pascal's triangle for any number"""
 
 
 def pascal_triangle(n):
-        """ Function for creating a pascal triangle as a list of lists
-    n: number of rows
-    returns empty list if n <= 0
+            """
+    returns a list of lists of integers representing the Pascal’s triangle of n
     """
-            if n <= 0:
-                        return ([])
+                triangle = []
 
-                        pascal = [[1]]
-                            for i in range(1, n):
-                                        row = [1]
-                                                prev = pascal[i - 1]
-                                                        for j in range(len(prev)):
-                                                                        new = prev[j] + prev[j + 1] if j != len(prev) - 1 else 1
-                                                                                    row.append(new)
+                    # return (trianlgle if n <= 0)
+                        if n <= 0:
+                                        return triangle
+                                    for i in range(n):
+                                                    temp_list = []
 
-                                                                                            pascal.append(row)
-
-                                                                                                return pascal
+                                                            for j in range(i+1):
+                                                                                if j == 0 or j == i:
+                                                                                                        temp_list.append(1)
+                                                                                else:
+                                                                                                        temp_list.append(triangle[i-1][j-1] + triangle[i-1][j])
+                                                                                                                triangle.append(temp_list)
+                                                                                                                    # print(triangle)
+                                                                                                                        return 
